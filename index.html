@@ -44,6 +44,11 @@
     .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
     .tag{background:#fff;padding:6px 8px;border-radius:999px;border:1px solid #e6edf9;color:#0f172a;font-size:13px}
 
+    /* Skill cloud */
+    .skill-cloud{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+    .skill-tag{background:#fff;padding:8px 12px;border-radius:999px;border:1px solid #eef2ff;color:#0f172a;cursor:default;transition:transform .12s,box-shadow .12s}
+    .skill-tag:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(15,23,42,.06)}
+
     /* Timeline */
     .timeline{position:relative;padding-left:18px}
     .timeline::before{content:"";position:absolute;left:8px;top:0;bottom:0;width:2px;background:#e6eefc;border-radius:2px}
@@ -114,18 +119,14 @@
       <div class="grid">
         <div>
           <div class="skills-list">
-            <div class="skill">
-              <div class="label"><span>溝通</span><span>95%</span></div>
-              <div class="progress" data-value="95"><i></i></div>
+            <div class="skill-cloud" aria-label="技能標籤雲">
+              <span class="skill-tag" data-value="95">溝通</span>
+              <span class="skill-tag" data-value="75">學習</span>
+              <span class="skill-tag" data-value="85">組織</span>
+              <span class="skill-tag" data-value="90">運動能力</span>
             </div>
-            <div class="skill">
-              <div class="label"><span>學習</span><span>75%</span></div>
-              <div class="progress" data-value="75"><i></i></div>
-            </div>
-            <div class="skill">
-              <div class="label"><span>組織</span><span>85%</span></div>
-              <div class="progress" data-value="85"><i></i></div>
-            </div>
+
+=======
             <div class="skill">
               <div class="label"><span>運動能力</span><span>90%</span></div>
               <div class="progress" data-value="90"><i></i></div>
@@ -136,6 +137,7 @@
             <span class="tag">安守本分</span>
             <span class="tag">桌球</span>
           </div>
+
         </div>
       </div>
     </section>
@@ -219,6 +221,15 @@
             const v = p.getAttribute('data-value')||0;
             const bar = p.querySelector('i');
             bar.style.width = v + '%';
+          });
+          // set skill-tag sizes when skills section becomes visible
+          entry.target.querySelectorAll('.skill-tag').forEach(tag=>{
+            const v = Number(tag.dataset.value) || 60;
+            // map value (0-100) to font-size 12px - 20px
+            const size = 12 + (v/100) * 10;
+            tag.style.fontSize = size + 'px';
+            // also emphasize higher values
+            tag.style.fontWeight = v > 80 ? '700' : '600';
           });
         }
       });
