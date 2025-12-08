@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400" role="img" aria-label="個人資料大頭照">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1">
+      <stop offset="0%" stop-color="#e0e7ff" />
+      <stop offset="100%" stop-color="#fff" />
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" rx="24" fill="url(#bg)" />
+
+  <!-- 圓形臉 -->
+  <g transform="translate(200,160)">
+    <ellipse cx="0" cy="40" rx="72" ry="92" fill="#FFE8D6" stroke="#ffdcb8" stroke-width="2" />
+
+    <!-- 眼睛 -->
+    <g transform="translate(-24,0)">
+      <circle cx="0" cy="22" r="8" fill="#111" />
+    </g>
+    <g transform="translate(24,0)">
+      <circle cx="0" cy="22" r="8" fill="#111" />
+    </g>
+
+    <!-- 微笑嘴巴 -->
+    <path d="M -28 60 C -18 78, 18 78, 28 60" stroke="#b35" stroke-width="4" fill="none" stroke-linecap="round" />
+
+    <!-- 簡單髮型 -->
+    <path d="M -80 -10 C -80 -80, 80 -80, 80 -10 C 40 -40, -40 -40, -80 -10 Z" fill="#3b3a8f" />
+  </g>
+
+  <!-- 衣領 -->
+  <g transform="translate(200,300)">
+    <path d="M -80 0 Q 0 40 80 0 L 80 48 Q 0 80 -80 48 Z" fill="#eef2ff" stroke="#dbe7ff" stroke-width="1" />
+  </g>
+
+  <!-- subtle shadow -->
+  <ellipse cx="200" cy="370" rx="120" ry="18" fill="#000" opacity="0.06" />
+</svg>
